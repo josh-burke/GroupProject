@@ -1,0 +1,38 @@
+
+public class ATM {
+
+	private String location;
+	private String atmBranch;
+	
+public ATM() {
+	location ="TBD";
+	atmBranch = "TBD";
+}
+
+public ATM(String loc, String atm) {
+	location = loc;
+	atmBranch = atm;
+}
+public String getLocation() {
+	return location;
+}
+public String getAtmBranch() {
+	return atmBranch;
+}
+public void setLocation(String loc) {
+	location = loc;
+}
+public void setAtmBranch(String atm) {
+	atmBranch = atm;
+}
+public double getBalance(){
+	return 
+}
+
+public void deposit() {
+	
+}
+public void withdraw() {
+	
+}
+}
