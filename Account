@@ -1,0 +1,53 @@
+
+public class Account {
+
+	private double balance;
+	private String accName;
+	private String accId;
+	
+	public Account() {        //default
+		accName = "TBD";
+		accId = "TBD";
+		balance = 0.0;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public String getAccName() {
+		return accName;
+	}
+	
+	public String getAccId() {
+		return accId;
+	}
+	
+	public void setId(String number) {
+		accId = number;
+	}
+	
+	public void setName(String name) {
+		accName = name;
+	}
+	
+	public void setBalance(double b) {
+		balance = b;
+	}
+	
+	public boolean withdraw(double depositAmount) {
+		if (!(depositAmount < balance)) 
+			return false;
+		else 
+			return true;
+	}
+	
+	public boolean deposit(double depositAmount) {
+		if(!(depositAmount < 0.0))
+			return false;
+		else 
+			return true;
+	}
+	
+	
+}
