@@ -1,14 +1,30 @@
 
 public class Account {
 
+	
 	private double balance;
 	private String accName;
-	private String accId;
+	private int accId;
+	private static int accountCount = 0;
 	
 	public Account() {        //default
 		accName = "TBD";
-		accId = "TBD";
-		balance = 0.0;
+		accId = accountCount;
+		balance = 0;
+		accountCount++;
+	}
+	
+	public Account(String accName, int balance) {
+		accId = accountCount;
+		this.accName = accName;
+		balance = 0;
+		accountCount++;
+	}
+	
+	public void printAccount() {
+		System.out.println("Account Name: " + accName);
+		System.out.println("Account ID: " + accId);
+		System.out.println("Account Balance: $" + balance);
 	}
 	
 	public double getBalance() {
@@ -19,11 +35,11 @@ public class Account {
 		return accName;
 	}
 	
-	public String getAccId() {
+	public int getAccId() {
 		return accId;
 	}
 	
-	public void setId(String number) {
+	public void setId(int number) {
 		accId = number;
 	}
 	
@@ -35,19 +51,23 @@ public class Account {
 		balance = b;
 	}
 	
-	public boolean withdraw(double depositAmount) {
-		if (!(depositAmount < balance)) 
-			return false;
-		else 
-			return true;
+	public void withdraw(double withdrawRequest) {
+		if ((withdrawRequest <= balance) && (withdrawRequest > 0)) {
+			balance = balance - withdrawRequest;
+		}
 	}
 	
-	public boolean deposit(double depositAmount) {
-		if(!(depositAmount < 0.0))
-			return false;
-		else 
-			return true;
+	public void deposit(double depositAmount) {
+		if(depositAmount > 0) {
+			balance += depositAmount;
+		}
+		else {
+			System.out.println("Deposit amount has to be greater than 0");
+		}
 	}
+	
 	
 	
 }
+	
+
