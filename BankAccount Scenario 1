@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class BankAccEx {
+	
+	public static void main(String[] args) {
+		
+		
+		Account anderson = new Account("Brad Anderson", "1111");
+		
+		System.out.println("Welcome, please insert card.");
+		System.out.println();
+		for (int i = 0; i <= 3 ; i++) {
+			if (i <= 3) {
+				System.out.println("Please select the appropriate option:");
+				System.out.println("1. Print Account Info");
+				System.out.println("2. Deposit");
+				System.out.println("3. Withdraw");
+				System.out.println("4. Exit");
+		
+		Scanner scnr = new Scanner(System.in);
+		int selection = scnr.nextInt();	
+		
+		if(selection == 1) //SHOW ACCOUNT INFO
+		{
+		   anderson.printAcc(); 
+		}
+		if(selection == 2) //DEPOSIT
+		{
+
+			double depositAmount; 
+			System.out.println("Enter deposit amount: $");
+			depositAmount = scnr.nextDouble();
+			anderson.deposit(depositAmount);
+			System.out.println("Remaining Balance: $" + anderson.getBalance());
+		}
+		if(selection == 3) //WITHDRAW
+		{
+			double withdrawRequest; 
+			System.out.println("Enter withdraw amount: $");
+			withdrawRequest = scnr.nextDouble();
+			anderson.withdraw(withdrawRequest);
+			System.out.println("Remaining Balance: $" + anderson.getBalance());
+		}
+		if(selection == 4) //EXIT
+		{
+
+			System.out.println("Please remove card.");
+			System.out.println("Goodbye.");
+		}
+		
+			}//end if statement in for loop
+		} // end for loop
+
+		
+	}//end args
+} // end class
