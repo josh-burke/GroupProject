@@ -1,0 +1,36 @@
+
+public class ATM extends Account {
+
+	private int numAtms;
+	private String atmLocation;
+	
+	public ATM() { //default
+		numAtms = 5;
+		atmLocation = "Atlanta, GA";
+	}
+	
+	public void setNumAtms(int numAtms) {
+		this.numAtms = numAtms;
+	}
+	
+	public int getNumAtms() {
+		return numAtms;
+	}
+	
+	public void setAtmLocation(String atmLocation ) {
+		this.atmLocation = atmLocation;
+	}
+	
+	public String getAtmLocation() {
+		return atmLocation;
+	}
+	
+	@Override
+	public void print() {
+		super.print();
+		System.out.println("ATM Location: " + atmLocation);
+		System.out.println("Number of ATMs: " + numAtms);
+	}
+
+
+}
