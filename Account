@@ -6,10 +6,10 @@ public class Account {
 	private String accName;
 	private String accId;
 	
-	public Account(String name, String Id) {        //default
-		this.accName = name; //Using the 'this' keyword
+	public Account(String name, String Id) {  //default
+		this.accName = name; 
 		accId = Id;
-		balance = 30000.0; //all initial balances set to $200.0
+		balance = 30000.0; 
 	}
 	
 	/*
