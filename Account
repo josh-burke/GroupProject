@@ -4,24 +4,21 @@ public class Account {
 	
 	private double balance;
 	private String accName;
-	private int accId;
-	private static int accountCount = 0;
+	private String accId;
 	
-	public Account() {        //default
-		accName = "TBD";
-		accId = accountCount;
-		balance = 0;
-		accountCount++;
+	public Account(String name, String Id) {        //default
+		this.accName = name; //Using the 'this' keyword
+		accId = Id;
+		balance = 30000.0; //all initial balances set to $200.0
 	}
 	
-	public Account(String accName, int balance) {
-		accId = accountCount;
-		this.accName = accName;
-		balance = 0;
-		accountCount++;
-	}
+	/*
+	 * public Account(String accName, int balance) { accId = accountCount;
+	 * this.accName = accName; balance = (int) 30000.0; accountCount++;
+	 */
 	
-	public void print() {
+	
+	public void printAcc() {
 		System.out.println("Account Name: " + accName);
 		System.out.println("Account ID: " + accId);
 		System.out.println("Account Balance: $" + balance);
@@ -35,11 +32,11 @@ public class Account {
 		return accName;
 	}
 	
-	public int getAccId() {
+	public String getAccId() {
 		return accId;
 	}
 	
-	public void setId(int number) {
+	public void setId(String number) {
 		accId = number;
 	}
 	
@@ -55,13 +52,16 @@ public class Account {
 		if ((withdrawRequest <= balance) && (withdrawRequest > 0)) {
 			balance = balance - withdrawRequest;
 		}
+		else if (withdrawRequest > balance) {
+			System.out.println("Insufficient funds.");
+		}
 	}
 	
 	public void deposit(double depositAmount) {
 		if(depositAmount > 0) {
 			balance += depositAmount;
 		}
-		else {
+		else if (depositAmount < 0) {
 			System.out.println("Deposit amount has to be greater than 0");
 		}
 	}
